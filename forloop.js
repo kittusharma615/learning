@@ -7,7 +7,6 @@ function a(a,b,c){
 
 }
 
-
 let a =10;
 let b = a;
 
@@ -23,11 +22,6 @@ console.log(a,b)
 // arr1[2][0] =100
 
 // console.log(arr1,arr2)
-
-
-
-
-
 
 // let arr1 = {
 //     name:'a',
