@@ -30,7 +30,7 @@ const countAlphabets = () => {
 
 const obj = countAlphabets()
 
-
+console.log(obj)
 
 let str='man'
 
