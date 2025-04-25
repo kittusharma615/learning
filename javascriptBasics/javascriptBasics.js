@@ -161,4 +161,36 @@ let arr1=[
 
 // const nameInitials=input.split('').filter((i)=>i==i.toUpperCase()).join('')
 
-// console.log(nameInitials)
+// console.log(input.split('').filter((i)=>i==i.toUpperCase()).join(''))
+
+
+const input = [
+    { name: "John", age: 13, },
+    { name: "Mark", age: 56, },
+    { name: "Rachel", age: 45, },
+    { name: "Nate", age: 67, },
+    { name: "Jennifer", age: 65, },
+];
+
+
+    const ageDiff=input.map((i)=>i.age)
+
+    const min=Math.min(...ageDiff)
+    const max=Math.max(...ageDiff)
+    const med=max-min
+    const ageDifference=[min,med,max]
+
+    // console.log(ageDifference)
+
+    const input2 = "Every developer likes to mix kubernetes and javascript";
+   
+   const numeronyms=(word)=>{
+if(word.length<=3){
+
+}
+   }
+   
+   
+    Result
+    "E3y d7r l3s to mix k8s and j8t";
+
