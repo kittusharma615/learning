@@ -14,3 +14,19 @@ return sum
 }
 
 console.log(sumOfEvenNumber(even))
+
+
+// ✅ Sum of digits of a number (e.g., 123 → 1+2+3 = 6).
+
+const digits = 123456789;
+const strNum = digits.toString();  // Convert number to string
+
+const sumOfDigitsNumber = (strNum) => {
+    let sum = 0;
+    for (let i = 0; i < strNum.length; i++) {  // Loop until less than strNum.length
+        sum += parseInt(strNum[i]);  // Add each digit
+    }
+    return sum;
+}
+
+console.log(sumOfDigitsNumber(strNum));

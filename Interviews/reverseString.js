@@ -26,20 +26,34 @@ console.log(reverseStringManually(str1));
 
 
 
-const arr=[2,5,7,3,4,6,9,10,13,15,17]
+const arr = [2, 5, 7, 3, 4, 6, 9, 10, 13, 15, 17];
 
+function reverseEvenNumbersKeepOdd(input) {
+    // Step 1: Collect even numbers in reverse order
+    let evens = [];
 
-
-function reverseEvenNumber(input) {
-    let reversed = arr[0];
-    for (let i = arr.length - 1; i >= 0; i--) {
-        if(arr[i])
-        
-        reversed += input[i];
+    for (let i = input.length - 1; i >= 0; i--) {
+        if (input[i] % 2 === 0) {
+            evens.push(input[i]);
+        }
     }
-    return reversed;
+
+    // Step 2: Build the new array
+    let result = [];
+
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] % 2 === 0) {
+            // Take from reversed evens
+            result.push(evens.shift());
+        } else {
+            // Keep odd number as it is
+            result.push(input[i]);
+        }
+    }
+
+    return result;
 }
 
-console.log(reverseEvenNumber(str1));
+console.log(reverseEvenNumbersKeepOdd(arr));
 
 
