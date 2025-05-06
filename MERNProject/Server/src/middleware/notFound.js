@@ -1,0 +1,1 @@
+exports.URLNotFound = (_, res) => { res.status(404).send({ status: false, msg: "Invalid URL" }) }
