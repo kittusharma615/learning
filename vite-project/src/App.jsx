@@ -1,11 +1,14 @@
-import React from 'react'
-import Navbar from './components/Navbar'
+import { Routes, Route } from 'react-router-dom'
 import LoginPage from './components/Login'
-export default function App() {
+import OtpPage from './components/otp'
+
+function App() {
   return (
-    <div>
-      {/* <Navbar/> */}
-      <LoginPage/>
-    </div>
+    <Routes>
+      <Route path="/" element={<LoginPage/>} />
+      <Route path="/otp" element={<OtpPage />} />
+    </Routes>
   )
 }
+
+export default App
