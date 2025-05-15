@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const cors = require('cors')
 const {URLNotFound} = require('./middleware/notFound')
 const route = require('./routes/route')
 
 dotenv.config()
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 const port = 8080 || process.env.PORT;
 
