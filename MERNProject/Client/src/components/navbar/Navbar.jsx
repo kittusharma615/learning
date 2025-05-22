@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { FaBars } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import DropDownProfile from './DropDownProfile';
+import  {useAuth} from '../context/auth_context'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+
+  const {isLoggedIn} =useAuth()
 
   const MENUDATA = [
     { link: '/men', name: 'Men' },
@@ -33,7 +37,9 @@ export default function Navbar() {
         </ul>
 
         {/* Buttons */}
-        <div className="hidden md:flex gap-4">
+        {
+          isLoggedIn?<DropDownProfile/>:
+          <div className="hidden md:flex gap-4">
           <Link to="/login" className="bg-white text-amber-600 font-semibold px-4 py-1 rounded hover:bg-amber-100 transition">
             Login
           </Link>
@@ -41,6 +47,8 @@ export default function Navbar() {
             Signup
           </Link>
         </div>
+        }
+        
 
         {/* Mobile Menu Toggle */}
         <button onClick={() => setOpen(!open)} className="md:hidden text-white text-2xl focus:outline-none">

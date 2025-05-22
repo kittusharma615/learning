@@ -1,14 +1,7 @@
 import React from 'react'
-import Navbar from './components/navbar/Navbar'
-import Home from './components/home/Home'
-import Man from './components/men/Man'
-import Women from './women/Women'
-import Kid from './components/kid/Kid'
-import Beauty from './components/beauty/Beauty'
-import Login from './components/login/Login'
-import Signup from './components/signup/Signup'
+import {Navbar,Home,Man,Women,Kid,Beauty,Login,Signup,Profile,Setting,OtpVerification} from './AllComponents';
+
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import OtpVerification from './components/OtpVerification'
 
 export default function App() {
   return (
@@ -22,6 +15,8 @@ export default function App() {
       <Route path='/beauty' element={<Beauty/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Signup/>}/>
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/setting' element={<Setting/>}/>
       <Route path='/otpverification/:type/:id' element={<OtpVerification/>}/>
     </Routes>
     </BrowserRouter>

@@ -1,0 +1,11 @@
+export {default as Navbar} from './components/navbar/Navbar';
+export {default as Profile} from './components/navbar/Profile/Profile';
+export {default as Setting} from './components/navbar/Profile/Setting';
+export {default as OtpVerification} from './components/OtpVerification';
+export {default as Beauty} from './components/beauty/Beauty';
+export {default as Home} from './components/home/Home';
+export {default as Kid} from './components/kid/Kid';
+export {default as Login} from './components/login/Login';
+export {default as Man} from './components/men/Man';
+export {default as Signup} from './components/signup/Signup';
+export {default as Women} from './components/women/Women';

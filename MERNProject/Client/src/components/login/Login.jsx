@@ -1,21 +1,19 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import left_cover from "../../assets/left_cover.jpg";
 import axios from 'axios';
+import {useAuth} from '../context/auth_context'
+import {loginSchema} from './Validation'
+import {showSuccessToast,showErrorToast} from '../react-toastify/Notification'
 
 export default function Login() {
-
-    const loginSchema = Yup.object({
-      email: Yup.string().matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid Email").email("Invalid email").required("Email is required"),
-      password: Yup.string().matches(/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/, "Invalid Password").min(6, "Minimum 6 characters").required("Password is required"),
-    });
 
     const loginFields = [
       { name: "email", placeholder: "Enter Your Email", type: "email" },
       { name: "password", placeholder: "Enter Your Password", type: "password" },
     ];
 
+    const {setIsLoggedIn,setUserData} = useAuth()
 
     const handleLoginSubmit = async(values) => {
     
@@ -23,13 +21,17 @@ export default function Login() {
         const response = await axios.post('http://localhost:8080/LogInUser',values)
         
         if(response.status ==200 || response.status==201){
-          console.log(response)
-          alert(response.data.msg)
+          
+          localStorage.setItem('User_token',response.data.token)
+          localStorage.setItem('User_id',response.data.id)
+          setUserData(response.data.data)
+          setIsLoggedIn(true)
+          showSuccessToast('Sucessfully LogIn')
         }
        
       }
       catch(e){
-        alert(e.response.data?.msg|| 'Network Error')
+        showErrorToast(e.response.data?.msg|| 'Network Error')
       }
     };
   
